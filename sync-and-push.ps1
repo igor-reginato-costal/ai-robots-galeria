@@ -1,6 +1,7 @@
 $ErrorActionPreference = 'Stop'
 
 $SourcePath = 'C:\Users\igore\Meu Drive (igor.reginato@costal.com.br)\AI ROBOTS\AI_ROBOTS_Galeria.html'
+$SourceDirectory = Split-Path -Parent $SourcePath
 $RepositoryPath = $PSScriptRoot
 $PublishedPath = Join-Path $RepositoryPath 'index.html'
 $ExpectedRemote = 'https://github.com/igor-reginato-costal/ai-robots-galeria.git'
@@ -84,17 +85,55 @@ try {
         throw ("PUBLICACAO INTERROMPIDA: index.html tem {0:N2} MiB e excedeu o limite de 100 MiB suportado pelo GitHub." -f $indexSizeMiB)
     }
 
+    $htmlContent = [System.IO.File]::ReadAllText($PublishedPath)
+    $assetMatches = [regex]::Matches($htmlContent, '"file"\s*:\s*"([^"\\]*(?:\\.[^"\\]*)*)"')
+    $assetNames = @(
+        $assetMatches |
+            ForEach-Object { ConvertFrom-Json ('"' + $_.Groups[1].Value + '"') } |
+            Sort-Object -Unique
+    )
+
+    $assetsCopied = 0
+    foreach ($assetName in $assetNames) {
+        if ([System.IO.Path]::GetFileName($assetName) -ne $assetName) {
+            throw "Referencia de asset fora da pasta permitida: $assetName"
+        }
+
+        $sourceAsset = Join-Path $SourceDirectory $assetName
+        $publishedAsset = Join-Path $RepositoryPath $assetName
+        if (-not (Test-Path -LiteralPath $sourceAsset -PathType Leaf)) {
+            throw "Asset referenciado pelo HTML nao encontrado: $sourceAsset"
+        }
+
+        $assetSourceHash = Get-Sha256 -Path $sourceAsset
+        $assetDestinationHash = if (Test-Path -LiteralPath $publishedAsset -PathType Leaf) {
+            Get-Sha256 -Path $publishedAsset
+        } else {
+            $null
+        }
+
+        if ($assetSourceHash -ne $assetDestinationHash) {
+            Copy-Item -LiteralPath $sourceAsset -Destination $publishedAsset -Force
+            if ((Get-Sha256 -Path $publishedAsset) -ne $assetSourceHash) {
+                throw "A verificacao SHA-256 falhou para o asset: $assetName"
+            }
+            $assetsCopied++
+        }
+    }
+
+    Write-Host "ASSETS: $($assetNames.Count) referenciados; $assetsCopied sincronizados." -ForegroundColor Green
+    $siteFiles = @('index.html') + $assetNames
+
     Write-Host "`nGIT STATUS (antes do commit):"
     Invoke-Git -Arguments @('status', '--short', '--branch')
 
-    # O HTML e autossuficiente; nao ha assets externos para sincronizar.
-    Invoke-Git -Arguments @('add', '--', 'index.html')
+    Invoke-Git -Arguments (@('add', '--') + $siteFiles)
 
-    & git -C $RepositoryPath diff --cached --quiet -- 'index.html'
+    & git -C $RepositoryPath diff --cached --quiet -- @siteFiles
     $diffExitCode = $LASTEXITCODE
     if ($diffExitCode -eq 1) {
         $message = 'Update AI Robots Gallery - ' + (Get-Date -Format 'yyyy-MM-dd HH:mm')
-        Invoke-Git -Arguments @('commit', '-m', $message, '--', 'index.html')
+        Invoke-Git -Arguments (@('commit', '-m', $message, '--') + $siteFiles)
         $commitHash = (& git -C $RepositoryPath rev-parse HEAD).Trim()
         if ($LASTEXITCODE -ne 0) { throw 'Nao foi possivel obter o hash do commit.' }
         Write-Host "COMMIT: criado ($commitHash)" -ForegroundColor Green
