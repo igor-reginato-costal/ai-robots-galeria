@@ -1,0 +1,26 @@
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors and local tooling
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temporary files, backups, caches, and logs
+*.tmp
+*.temp
+*.bak
+*.backup
+*~
+*.log
+.cache/
+tmp/
+temp/
+
+# Local dependency/build directories not used by this static site
+node_modules/
+dist/
+build/
