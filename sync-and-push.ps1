@@ -3,7 +3,7 @@ $ErrorActionPreference = 'Stop'
 $SourcePath = 'C:\Users\igore\Meu Drive (igor.reginato@costal.com.br)\AI ROBOTS\AI_ROBOTS_Galeria.html'
 $RepositoryPath = $PSScriptRoot
 $PublishedPath = Join-Path $RepositoryPath 'index.html'
-$ExpectedRemote = 'https://github.com/igor-reginato-costal/ai-robot-galeria.git'
+$ExpectedRemote = 'https://github.com/igor-reginato-costal/ai-robots-galeria.git'
 
 function Invoke-Git {
     param(
