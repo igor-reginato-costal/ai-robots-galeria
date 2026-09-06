@@ -17,6 +17,25 @@ function Invoke-Git {
     }
 }
 
+function Get-Sha256 {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string] $Path
+    )
+
+    $stream = [System.IO.File]::OpenRead($Path)
+    try {
+        $sha256 = [System.Security.Cryptography.SHA256]::Create()
+        try {
+            return ([System.BitConverter]::ToString($sha256.ComputeHash($stream))).Replace('-', '')
+        } finally {
+            $sha256.Dispose()
+        }
+    } finally {
+        $stream.Dispose()
+    }
+}
+
 try {
     Write-Host '=== Publicacao da AI Robot Galeria ===' -ForegroundColor Cyan
 
@@ -38,16 +57,16 @@ try {
         throw "Origin inesperado: $originUrl"
     }
 
-    $sourceHash = (Get-FileHash -LiteralPath $SourcePath -Algorithm SHA256).Hash
+    $sourceHash = Get-Sha256 -Path $SourcePath
     $destinationHash = if (Test-Path -LiteralPath $PublishedPath -PathType Leaf) {
-        (Get-FileHash -LiteralPath $PublishedPath -Algorithm SHA256).Hash
+        Get-Sha256 -Path $PublishedPath
     } else {
         $null
     }
 
     if ($sourceHash -ne $destinationHash) {
         Copy-Item -LiteralPath $SourcePath -Destination $PublishedPath -Force
-        $copiedHash = (Get-FileHash -LiteralPath $PublishedPath -Algorithm SHA256).Hash
+        $copiedHash = Get-Sha256 -Path $PublishedPath
         if ($copiedHash -ne $sourceHash) {
             throw 'A verificacao SHA-256 falhou depois da copia para index.html.'
         }
