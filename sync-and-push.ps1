@@ -58,22 +58,40 @@ try {
         throw "Origin inesperado: $originUrl"
     }
 
-    $sourceHash = Get-Sha256 -Path $SourcePath
+    $sourceHtml = [System.IO.File]::ReadAllText($SourcePath)
+    $imageUrlSource = 'const imageURL=i=>encodeURIComponent(agents[i].file);'
+    $imageUrlPublished = 'const imageURL=i=>encodeURIComponent(agents[i].file.replace(/#/g,''));'
+    if (-not $sourceHtml.Contains($imageUrlSource)) {
+        throw 'Nao foi possivel localizar a regra de URL das imagens no HTML-fonte.'
+    }
+
+    # O Netlify nao aceita # em nomes implantados. A adaptacao ocorre somente
+    # na copia publicada; o HTML-fonte permanece intacto no Google Drive.
+    $publishedHtml = $sourceHtml.Replace($imageUrlSource, $imageUrlPublished)
+    $utf8WithoutBom = New-Object System.Text.UTF8Encoding($false)
+    $publishedBytes = $utf8WithoutBom.GetBytes($publishedHtml)
+    $sha256 = [System.Security.Cryptography.SHA256]::Create()
+    try {
+        $expectedPublishedHash = ([System.BitConverter]::ToString($sha256.ComputeHash($publishedBytes))).Replace('-', '')
+    } finally {
+        $sha256.Dispose()
+    }
+
     $destinationHash = if (Test-Path -LiteralPath $PublishedPath -PathType Leaf) {
         Get-Sha256 -Path $PublishedPath
     } else {
         $null
     }
 
-    if ($sourceHash -ne $destinationHash) {
-        Copy-Item -LiteralPath $SourcePath -Destination $PublishedPath -Force
+    if ($expectedPublishedHash -ne $destinationHash) {
+        [System.IO.File]::WriteAllText($PublishedPath, $publishedHtml, $utf8WithoutBom)
         $copiedHash = Get-Sha256 -Path $PublishedPath
-        if ($copiedHash -ne $sourceHash) {
+        if ($copiedHash -ne $expectedPublishedHash) {
             throw 'A verificacao SHA-256 falhou depois da copia para index.html.'
         }
-        Write-Host 'ALTERACAO: index.html foi sincronizado e validado por SHA-256.' -ForegroundColor Yellow
+        Write-Host 'ALTERACAO: index.html foi sincronizado, adaptado para o Netlify e validado por SHA-256.' -ForegroundColor Yellow
     } else {
-        Write-Host 'ALTERACAO: nenhuma; index.html ja corresponde ao arquivo-fonte.' -ForegroundColor Green
+        Write-Host 'ALTERACAO: nenhuma; index.html ja corresponde a versao web do arquivo-fonte.' -ForegroundColor Green
     }
 
     $indexSizeBytes = (Get-Item -LiteralPath $PublishedPath).Length
@@ -94,13 +112,23 @@ try {
     )
 
     $assetsCopied = 0
+    $publishedAssetNames = @()
+    $retiredAssetNames = @()
     foreach ($assetName in $assetNames) {
         if ([System.IO.Path]::GetFileName($assetName) -ne $assetName) {
             throw "Referencia de asset fora da pasta permitida: $assetName"
         }
 
+        $publishedAssetName = $assetName.Replace('#', '')
+        $publishedAssetNames += $publishedAssetName
+        if ($publishedAssetName -ne $assetName) {
+            & git -C $RepositoryPath ls-files --error-unmatch -- $assetName *> $null
+            if ($LASTEXITCODE -eq 0) {
+                $retiredAssetNames += $assetName
+            }
+        }
         $sourceAsset = Join-Path $SourceDirectory $assetName
-        $publishedAsset = Join-Path $RepositoryPath $assetName
+        $publishedAsset = Join-Path $RepositoryPath $publishedAssetName
         if (-not (Test-Path -LiteralPath $sourceAsset -PathType Leaf)) {
             throw "Asset referenciado pelo HTML nao encontrado: $sourceAsset"
         }
@@ -122,7 +150,7 @@ try {
     }
 
     Write-Host "ASSETS: $($assetNames.Count) referenciados; $assetsCopied sincronizados." -ForegroundColor Green
-    $siteFiles = @('index.html') + $assetNames
+    $siteFiles = @('index.html') + $publishedAssetNames + $retiredAssetNames
 
     Write-Host "`nGIT STATUS (antes do commit):"
     Invoke-Git -Arguments @('status', '--short', '--branch')
