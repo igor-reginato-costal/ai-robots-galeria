@@ -122,8 +122,11 @@ try {
         $publishedAssetName = $assetName.Replace('#', '')
         $publishedAssetNames += $publishedAssetName
         if ($publishedAssetName -ne $assetName) {
-            & git -C $RepositoryPath ls-files --error-unmatch -- $assetName *> $null
-            if ($LASTEXITCODE -eq 0) {
+            $trackedLegacyAsset = & git -C $RepositoryPath ls-files -- $assetName
+            if ($LASTEXITCODE -ne 0) {
+                throw "Nao foi possivel verificar o asset antigo: $assetName"
+            }
+            if ($trackedLegacyAsset) {
                 $retiredAssetNames += $assetName
             }
         }
