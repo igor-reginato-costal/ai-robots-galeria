@@ -75,6 +75,15 @@ try {
         Write-Host 'ALTERACAO: nenhuma; index.html ja corresponde ao arquivo-fonte.' -ForegroundColor Green
     }
 
+    $indexSizeBytes = (Get-Item -LiteralPath $PublishedPath).Length
+    $indexSizeMiB = $indexSizeBytes / 1MB
+    if ($indexSizeBytes -gt 95MB) {
+        Write-Warning ("index.html tem {0:N2} MiB e esta acima de 95 MiB." -f $indexSizeMiB)
+    }
+    if ($indexSizeBytes -ge 100MB) {
+        throw ("PUBLICACAO INTERROMPIDA: index.html tem {0:N2} MiB e excedeu o limite de 100 MiB suportado pelo GitHub." -f $indexSizeMiB)
+    }
+
     Write-Host "`nGIT STATUS (antes do commit):"
     Invoke-Git -Arguments @('status', '--short', '--branch')
 
