@@ -60,7 +60,7 @@ try {
 
     $sourceHtml = [System.IO.File]::ReadAllText($SourcePath)
     $imageUrlSource = 'const imageURL=i=>encodeURIComponent(agents[i].file);'
-    $imageUrlPublished = 'const imageURL=i=>encodeURIComponent(agents[i].file.replace(/#/g,''));'
+    $imageUrlPublished = "const imageURL=i=>encodeURIComponent(agents[i].file.replace(/#/g,''));"
     if (-not $sourceHtml.Contains($imageUrlSource)) {
         throw 'Nao foi possivel localizar a regra de URL das imagens no HTML-fonte.'
     }
