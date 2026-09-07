@@ -59,15 +59,7 @@ try {
     }
 
     $sourceHtml = [System.IO.File]::ReadAllText($SourcePath)
-    $imageUrlSource = 'const imageURL=i=>encodeURIComponent(agents[i].file);'
-    $imageUrlPublished = "const imageURL=i=>encodeURIComponent(agents[i].file.replace(/#/g,''));"
-    if (-not $sourceHtml.Contains($imageUrlSource)) {
-        throw 'Nao foi possivel localizar a regra de URL das imagens no HTML-fonte.'
-    }
-
-    # O Netlify nao aceita # em nomes implantados. A adaptacao ocorre somente
-    # na copia publicada; o HTML-fonte permanece intacto no Google Drive.
-    $publishedHtml = $sourceHtml.Replace($imageUrlSource, $imageUrlPublished)
+    $publishedHtml = $sourceHtml
     $utf8WithoutBom = New-Object System.Text.UTF8Encoding($false)
     $publishedBytes = $utf8WithoutBom.GetBytes($publishedHtml)
     $sha256 = [System.Security.Cryptography.SHA256]::Create()
@@ -113,25 +105,20 @@ try {
 
     $assetsCopied = 0
     $publishedAssetNames = @()
-    $retiredAssetNames = @()
+    $sourceRoot = [System.IO.Path]::GetFullPath($SourceDirectory + [System.IO.Path]::DirectorySeparatorChar)
+    $repositoryRoot = [System.IO.Path]::GetFullPath($RepositoryPath + [System.IO.Path]::DirectorySeparatorChar)
     foreach ($assetName in $assetNames) {
-        if ([System.IO.Path]::GetFileName($assetName) -ne $assetName) {
-            throw "Referencia de asset fora da pasta permitida: $assetName"
-        }
-
-        $publishedAssetName = $assetName.Replace('#', '')
+        $publishedAssetName = $assetName.Replace('\\', '/')
         $publishedAssetNames += $publishedAssetName
-        if ($publishedAssetName -ne $assetName) {
-            $trackedLegacyAsset = & git -C $RepositoryPath ls-files -- $assetName
-            if ($LASTEXITCODE -ne 0) {
-                throw "Nao foi possivel verificar o asset antigo: $assetName"
-            }
-            if ($trackedLegacyAsset) {
-                $retiredAssetNames += $assetName
-            }
+        $relativeAssetPath = $publishedAssetName.Replace('/', [System.IO.Path]::DirectorySeparatorChar)
+        $sourceAsset = [System.IO.Path]::GetFullPath((Join-Path $SourceDirectory $relativeAssetPath))
+        $publishedAsset = [System.IO.Path]::GetFullPath((Join-Path $RepositoryPath $relativeAssetPath))
+        if (-not $sourceAsset.StartsWith($sourceRoot, [System.StringComparison]::OrdinalIgnoreCase)) {
+            throw "Referencia de asset fora da pasta-fonte permitida: $assetName"
         }
-        $sourceAsset = Join-Path $SourceDirectory $assetName
-        $publishedAsset = Join-Path $RepositoryPath $publishedAssetName
+        if (-not $publishedAsset.StartsWith($repositoryRoot, [System.StringComparison]::OrdinalIgnoreCase)) {
+            throw "Destino de asset fora do repositorio permitido: $assetName"
+        }
         if (-not (Test-Path -LiteralPath $sourceAsset -PathType Leaf)) {
             throw "Asset referenciado pelo HTML nao encontrado: $sourceAsset"
         }
@@ -144,6 +131,10 @@ try {
         }
 
         if ($assetSourceHash -ne $assetDestinationHash) {
+            $publishedAssetDirectory = Split-Path -Parent $publishedAsset
+            if (-not (Test-Path -LiteralPath $publishedAssetDirectory -PathType Container)) {
+                New-Item -ItemType Directory -Path $publishedAssetDirectory -Force | Out-Null
+            }
             Copy-Item -LiteralPath $sourceAsset -Destination $publishedAsset -Force
             if ((Get-Sha256 -Path $publishedAsset) -ne $assetSourceHash) {
                 throw "A verificacao SHA-256 falhou para o asset: $assetName"
@@ -153,7 +144,24 @@ try {
     }
 
     Write-Host "ASSETS: $($assetNames.Count) referenciados; $assetsCopied sincronizados." -ForegroundColor Green
-    $siteFiles = @('index.html') + $publishedAssetNames + $retiredAssetNames
+    $trackedPngs = @(& git -C $RepositoryPath -c core.quotepath=false ls-files -- '*.png')
+    if ($LASTEXITCODE -ne 0) {
+        throw 'Nao foi possivel listar os PNGs rastreados no repositorio.'
+    }
+    $retiredAssetNames = @($trackedPngs | Where-Object { $publishedAssetNames -notcontains $_ })
+    foreach ($retiredAssetName in $retiredAssetNames) {
+        $retiredAsset = [System.IO.Path]::GetFullPath((Join-Path $RepositoryPath $retiredAssetName))
+        if (-not $retiredAsset.StartsWith($repositoryRoot, [System.StringComparison]::OrdinalIgnoreCase)) {
+            throw "Asset antigo fora do repositorio permitido: $retiredAssetName"
+        }
+        if (Test-Path -LiteralPath $retiredAsset -PathType Leaf) {
+            Remove-Item -LiteralPath $retiredAsset
+        }
+    }
+    if ($retiredAssetNames.Count -gt 0) {
+        Write-Host "LIMPEZA: $($retiredAssetNames.Count) PNGs antigos removidos do site (recuperaveis pelo Git)." -ForegroundColor Yellow
+    }
+    $siteFiles = @('index.html', 'sync-and-push.ps1') + $publishedAssetNames + $retiredAssetNames
 
     Write-Host "`nGIT STATUS (antes do commit):"
     Invoke-Git -Arguments @('status', '--short', '--branch')
