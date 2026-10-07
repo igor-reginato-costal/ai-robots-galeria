@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "revision": "R00",
+  "revision": "R01",
   "date": "2026-10-07",
   "source": "../index.html#agent-data",
-  "notice": "As funções vêm da galeria AI Robots. Os guias são orientações preliminares elaboradas a partir dessas funções; não comprovam implementação ou desempenho. Configurações dos GPTs pessoais ainda não foram consultadas.",
+  "notice": "Catálogo reconciliado com 16 agentes nativos e 5 GPTs legados na conta indicada pelo responsável, em 07/10/2026. A configuração foi consultada; o funcionamento e o acesso pela equipe ainda não foram validados. Os demais registros preservam o escopo da galeria. Guias distinguem configuração consultada de orientação conceitual. Dois rascunhos sem publicação não entram na contagem de implementações.",
   "agents": {
     "APEX": {
       "id": "CST-AI-APEX",
@@ -49,17 +49,57 @@
     },
     "CHECK": {
       "id": "CST-AI-CHECK",
-      "area": "Engenharia e obras",
-      "status": "A confirmar",
+      "area": "QSMS",
+      "status": "Implementado · acesso restrito",
       "owner": null,
       "technicalOwner": null,
-      "platform": null,
+      "platform": "ChatGPT · agente nativo",
       "accessUrl": null,
       "accessVerified": false,
       "version": null,
-      "reviewedAt": null,
-      "documentationStatus": "Escopo catalogado; implementação não verificada",
-      "guide": null
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Apoia planos de inspeção, não conformidades e ações corretivas com rastreabilidade.",
+        "audience": "Pessoas autorizadas a trabalhar com qualidade e evidências.",
+        "inputs": [
+          "Critério de aceitação, evidências da inspeção e escopo do processo.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em qualidade e evidências. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: Não aprova produto, serviço ou encerramento de não conformidade em nome do responsável.",
+        "exampleInput": "Um lote fictício apresenta três registros sem resultado de inspeção.",
+        "exampleOutput": "Separar falta de evidência de reprovação comprovada e propor verificação antes de qualquer aceite.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "Não aprova produto, serviço ou encerramento de não conformidade em nome do responsável.",
+        "tests": [
+          "Caso normal: Um lote fictício apresenta três registros sem resultado de inspeção. Esperado: Separar falta de evidência de reprovação comprovada e propor verificação antes de qualquer aceite.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: Não aprova produto, serviço ou encerramento de não conformidade em nome do responsável."
+        ]
+      },
+      "role": "Qualidade e evidências",
+      "description": "Apoia planos de inspeção, não conformidades e ações corretivas com rastreabilidade.",
+      "implemented": true,
+      "aliases": [
+        "QSMS - Check"
+      ],
+      "knowledgeSummary": "Fontes prescritas nas instruções; conteúdo e permissões não auditados nesta edição.",
+      "toolsSummary": "Apps visíveis: Google Drive. 0 habilidades visíveis. Configuração não comprova operação.",
+      "autonomySummary": "Não aprova produto, serviço ou encerramento de não conformidade em nome do responsável.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "name": "CHECK"
     },
     "COMPASS": {
       "id": "CST-AI-COMPASS",
@@ -147,17 +187,57 @@
     },
     "ECO": {
       "id": "CST-AI-ECO",
-      "area": "Pessoas, segurança e ambiente",
-      "status": "A confirmar",
+      "area": "QSMS",
+      "status": "Implementado · acesso restrito",
       "owner": null,
       "technicalOwner": null,
-      "platform": null,
+      "platform": "ChatGPT · agente nativo",
       "accessUrl": null,
       "accessVerified": false,
       "version": null,
-      "reviewedAt": null,
-      "documentationStatus": "Escopo catalogado; implementação não verificada",
-      "guide": null
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Organiza requisitos, condicionantes, resíduos e evidências de gestão ambiental.",
+        "audience": "Pessoas autorizadas a trabalhar com gestão ambiental.",
+        "inputs": [
+          "Atividade, local, documentos ambientais vigentes e registros disponíveis.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em gestão ambiental. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: Vigência e aplicabilidade das fontes precisam ser conferidas; não representa aceite do órgão competente.",
+        "exampleInput": "Uma licença fictícia contém uma condicionante trimestral sem comprovante de atendimento.",
+        "exampleOutput": "Organizar obrigação, evidência faltante e responsável a confirmar, sem declarar conformidade.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "Vigência e aplicabilidade das fontes precisam ser conferidas; não representa aceite do órgão competente.",
+        "tests": [
+          "Caso normal: Uma licença fictícia contém uma condicionante trimestral sem comprovante de atendimento. Esperado: Organizar obrigação, evidência faltante e responsável a confirmar, sem declarar conformidade.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: Vigência e aplicabilidade das fontes precisam ser conferidas; não representa aceite do órgão competente."
+        ]
+      },
+      "role": "Gestão ambiental",
+      "description": "Organiza requisitos, condicionantes, resíduos e evidências de gestão ambiental.",
+      "implemented": true,
+      "aliases": [
+        "QSMS - ECO"
+      ],
+      "knowledgeSummary": "Fontes prescritas nas instruções; conteúdo e permissões não auditados nesta edição.",
+      "toolsSummary": "Apps visíveis: Google Drive. 0 habilidades visíveis. Configuração não comprova operação.",
+      "autonomySummary": "Vigência e aplicabilidade das fontes precisam ser conferidas; não representa aceite do órgão competente.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "name": "ECO"
     },
     "FIELD OPS": {
       "id": "CST-AI-FIELD-OPS",
@@ -329,17 +409,57 @@
     },
     "JUDGE": {
       "id": "CST-AI-JUDGE",
-      "area": "Estratégia e governança",
-      "status": "A confirmar",
+      "area": "Jurídico e governança",
+      "status": "Implementado · acesso restrito",
       "owner": null,
       "technicalOwner": null,
-      "platform": null,
+      "platform": "ChatGPT · agente nativo",
       "accessUrl": null,
       "accessVerified": false,
       "version": null,
-      "reviewedAt": null,
-      "documentationStatus": "Escopo catalogado; implementação não verificada",
-      "guide": null
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Estrutura cronologia, nexo causal, impacto e contrapontos em pleitos contratuais.",
+        "audience": "Pessoas autorizadas a trabalhar com pleitos e análise de evidências.",
+        "inputs": [
+          "Contrato, eventos datados, comunicações, evidências de impacto e valores.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em pleitos e análise de evidências. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: Não presume causalidade, procedência ou direito a pagamento sem suporte documental.",
+        "exampleInput": "Um pleito fictício alega atraso, mas não demonstra relação com o caminho crítico.",
+        "exampleOutput": "Organizar fatos e hipóteses e apontar a evidência necessária antes de atribuir responsabilidade.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "Não presume causalidade, procedência ou direito a pagamento sem suporte documental.",
+        "tests": [
+          "Caso normal: Um pleito fictício alega atraso, mas não demonstra relação com o caminho crítico. Esperado: Organizar fatos e hipóteses e apontar a evidência necessária antes de atribuir responsabilidade.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: Não presume causalidade, procedência ou direito a pagamento sem suporte documental."
+        ]
+      },
+      "role": "Pleitos e análise de evidências",
+      "description": "Estrutura cronologia, nexo causal, impacto e contrapontos em pleitos contratuais.",
+      "implemented": true,
+      "aliases": [
+        "Legal – Judge"
+      ],
+      "knowledgeSummary": "Fontes prescritas nas instruções; conteúdo e permissões não auditados nesta edição.",
+      "toolsSummary": "Nenhum app identificado na captura do editor. 7 habilidades visíveis. Configuração não comprova operação.",
+      "autonomySummary": "Não presume causalidade, procedência ou direito a pagamento sem suporte documental.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "name": "JUDGE"
     },
     "KING": {
       "id": "CST-AI-KING",
@@ -358,44 +478,56 @@
     "KNOW": {
       "id": "CST-AI-KNOW",
       "area": "Conhecimento e comunicação",
-      "status": "A confirmar",
+      "status": "Implementado · acesso restrito",
       "owner": null,
       "technicalOwner": null,
-      "platform": null,
+      "platform": "ChatGPT · agente nativo",
       "accessUrl": null,
       "accessVerified": false,
       "version": null,
-      "reviewedAt": null,
-      "documentationStatus": "Guia preliminar e roteiro de validação",
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
       "guide": {
-        "audience": "Curadores de conhecimento, responsáveis por documentação e pessoas que organizam notas.",
-        "when": "Quando você precisa identificar relações entre notas Markdown e organizar a navegação entre temas.",
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Organiza, conecta e sintetiza conhecimento em bases autorizadas, com evidências e histórico.",
+        "audience": "Pessoas autorizadas a trabalhar com gestão do conhecimento.",
         "inputs": [
-          "Notas autorizadas, com título e identificador estável.",
-          "Objetivo da organização e vocabulário adotado.",
-          "Critério para aceitar uma relação e referência de origem."
+          "Base autorizada, objetivo, notas de origem e critérios de alteração.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
         ],
         "steps": [
-          "Forneça um conjunto pequeno de notas e explique o objetivo.",
-          "Peça entidades e relações sustentadas por trechos das notas.",
-          "Solicite separação entre relações explícitas e hipóteses.",
-          "Revise cada vínculo e aplique apenas os aprovados no repositório de destino."
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
         ],
-        "prompt": "Analise estas notas Markdown: [conteúdo]. Proponha relações entre elas em uma tabela com origem, relação, destino e trecho de evidência. Separe hipóteses de relações explícitas. Não crie links para arquivos cuja existência não foi confirmada.",
-        "exampleInput": "Exemplo fictício: Nota A — o procedimento de inspeção utiliza o Checklist B. Nota B — checklist de recebimento de materiais.",
-        "exampleOutput": "Relação proposta: Procedimento de inspeção → utiliza → Checklist B. Evidência: trecho da Nota A. Confirmação necessária: se Checklist B e Nota B são o mesmo documento.",
+        "prompt": "Preciso de apoio em gestão do conhecimento. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: Escrita, reconciliação e automações precisam de verificação; proposta de relação não equivale a fato comprovado.",
+        "exampleInput": "Duas notas fictícias apresentam decisões diferentes, tomadas em datas distintas, sem declaração de substituição.",
+        "exampleOutput": "Preservar ambas, registrar a divergência e solicitar a autoridade necessária antes de declarar supersessão.",
         "review": [
-          "Os arquivos de destino existem?",
-          "Cada vínculo tem evidência?",
-          "Sinônimos foram conferidos antes de fundir entidades?"
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
         ],
-        "limits": "A galeria descreve trabalho conjunto com o PLAY; a existência de integração automática entre os dois ainda precisa ser verificada.",
+        "limits": "Escrita, reconciliação e automações precisam de verificação; proposta de relação não equivale a fato comprovado.",
         "tests": [
-          "Relação explícita: citar o trecho que a sustenta.",
-          "Nomes parecidos: pedir confirmação antes de fundir entidades.",
-          "Nota inexistente: sinalizar destino não confirmado."
+          "Caso normal: Duas notas fictícias apresentam decisões diferentes, tomadas em datas distintas, sem declaração de substituição. Esperado: Preservar ambas, registrar a divergência e solicitar a autoridade necessária antes de declarar supersessão.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: Escrita, reconciliação e automações precisam de verificação; proposta de relação não equivale a fato comprovado."
         ]
-      }
+      },
+      "role": "Gestão do conhecimento",
+      "description": "Organiza, conecta e sintetiza conhecimento em bases autorizadas, com evidências e histórico.",
+      "implemented": true,
+      "aliases": [
+        "Know - Einstein"
+      ],
+      "knowledgeSummary": "Base de conhecimento em Drive e 20 arquivos anexados observados. Conteúdo e acesso operacional não auditados nesta edição.",
+      "toolsSummary": "Apps visíveis: Google Drive. 4 habilidades visíveis. Configuração não comprova operação.",
+      "autonomySummary": "Escrita, reconciliação e automações precisam de verificação; proposta de relação não equivale a fato comprovado.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "name": "KNOW"
     },
     "LEARN": {
       "id": "CST-AI-LEARN",
@@ -679,17 +811,57 @@
     },
     "SAFEWATCH": {
       "id": "CST-AI-SAFEWATCH",
-      "area": "Pessoas, segurança e ambiente",
-      "status": "A confirmar",
+      "area": "QSMS",
+      "status": "Implementado · acesso restrito",
       "owner": null,
       "technicalOwner": null,
-      "platform": null,
+      "platform": "ChatGPT · agente nativo",
       "accessUrl": null,
       "accessVerified": false,
       "version": null,
-      "reviewedAt": null,
-      "documentationStatus": "Escopo catalogado; implementação não verificada",
-      "guide": null
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Apoia análise de perigos, controles, inspeções e preparação documental de segurança.",
+        "audience": "Pessoas autorizadas a trabalhar com segurança do trabalho.",
+        "inputs": [
+          "Atividade, local, etapas, evidências e controles existentes.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em segurança do trabalho. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: Não emite autorização operacional nem substitui avaliação do profissional responsável.",
+        "exampleInput": "Uma inspeção fictícia encontrou trabalho em altura sem evidência do plano de resgate.",
+        "exampleOutput": "Apontar a lacuna crítica, solicitar evidências e encaminhar ao responsável; não autorizar a atividade.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "Não emite autorização operacional nem substitui avaliação do profissional responsável.",
+        "tests": [
+          "Caso normal: Uma inspeção fictícia encontrou trabalho em altura sem evidência do plano de resgate. Esperado: Apontar a lacuna crítica, solicitar evidências e encaminhar ao responsável; não autorizar a atividade.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: Não emite autorização operacional nem substitui avaliação do profissional responsável."
+        ]
+      },
+      "role": "Segurança do trabalho",
+      "description": "Apoia análise de perigos, controles, inspeções e preparação documental de segurança.",
+      "implemented": true,
+      "aliases": [
+        "QSMS - SAFEWATCH"
+      ],
+      "knowledgeSummary": "Fontes prescritas nas instruções; conteúdo e permissões não auditados nesta edição.",
+      "toolsSummary": "A captura mostra um item de app sem identificação legível. Integração e execução pendentes de conferência.",
+      "autonomySummary": "Não emite autorização operacional nem substitui avaliação do profissional responsável.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "name": "SAFEWATCH"
     },
     "SCOUT": {
       "id": "CST-AI-SCOUT",
@@ -749,17 +921,57 @@
     },
     "SOURCE": {
       "id": "CST-AI-SOURCE",
-      "area": "Suprimentos e logística",
-      "status": "A confirmar",
+      "area": "Suprimentos",
+      "status": "Implementado · acesso restrito",
       "owner": null,
       "technicalOwner": null,
-      "platform": null,
+      "platform": "ChatGPT · agente nativo",
       "accessUrl": null,
       "accessVerified": false,
       "version": null,
-      "reviewedAt": null,
-      "documentationStatus": "Escopo catalogado; implementação não verificada",
-      "guide": null
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Estrutura sourcing, comparação de propostas e preparação de negociações.",
+        "audience": "Pessoas autorizadas a trabalhar com suprimentos e equalização.",
+        "inputs": [
+          "Especificação, quantidades, propostas comparáveis, frete, tributos, prazo e critérios.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em suprimentos e equalização. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: Não autoriza compra, assina contrato ou contata fornecedor sem autorização específica.",
+        "exampleInput": "Comparar duas propostas fictícias: A de R$ 1.000 com frete de R$ 50; B de R$ 980 com frete não informado.",
+        "exampleOutput": "Apresentar A = R$ 1.050 e B com total pendente; solicitar frete e evitar escolha sem bases equivalentes.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "Não autoriza compra, assina contrato ou contata fornecedor sem autorização específica.",
+        "tests": [
+          "Caso normal: Comparar duas propostas fictícias: A de R$ 1.000 com frete de R$ 50; B de R$ 980 com frete não informado. Esperado: Apresentar A = R$ 1.050 e B com total pendente; solicitar frete e evitar escolha sem bases equivalentes.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: Não autoriza compra, assina contrato ou contata fornecedor sem autorização específica."
+        ]
+      },
+      "role": "Suprimentos e equalização",
+      "description": "Estrutura sourcing, comparação de propostas e preparação de negociações.",
+      "implemented": true,
+      "aliases": [
+        "Supply - Souce"
+      ],
+      "knowledgeSummary": "Fontes prescritas nas instruções; conteúdo e permissões não auditados nesta edição.",
+      "toolsSummary": "Apps visíveis: Google Drive. 3 habilidades visíveis. Configuração não comprova operação.",
+      "autonomySummary": "Não autoriza compra, assina contrato ou contata fornecedor sem autorização específica.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "name": "SOURCE"
     },
     "STOCK": {
       "id": "CST-AI-STOCK",
@@ -819,17 +1031,57 @@
     },
     "VITA": {
       "id": "CST-AI-VITA",
-      "area": "Pessoas, segurança e ambiente",
-      "status": "A confirmar",
+      "area": "QSMS",
+      "status": "Implementado · acesso restrito",
       "owner": null,
       "technicalOwner": null,
-      "platform": null,
+      "platform": "ChatGPT · agente nativo",
       "accessUrl": null,
       "accessVerified": false,
       "version": null,
-      "reviewedAt": null,
-      "documentationStatus": "Escopo catalogado; implementação não verificada",
-      "guide": null
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Apoia organização administrativa de saúde ocupacional e suas interfaces documentais.",
+        "audience": "Pessoas autorizadas a trabalhar com saúde ocupacional.",
+        "inputs": [
+          "Objetivo administrativo, dados desidentificados e documentos autorizados.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em saúde ocupacional. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: Não diagnostica, prescreve, emite ASO ou determina aptidão.",
+        "exampleInput": "Planejar acompanhamento administrativo de exames periódicos para grupos fictícios, sem nomes nem diagnósticos.",
+        "exampleOutput": "Produzir controle de pendências por grupo e campos necessários, preservando informações clínicas.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "Não diagnostica, prescreve, emite ASO ou determina aptidão.",
+        "tests": [
+          "Caso normal: Planejar acompanhamento administrativo de exames periódicos para grupos fictícios, sem nomes nem diagnósticos. Esperado: Produzir controle de pendências por grupo e campos necessários, preservando informações clínicas.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: Não diagnostica, prescreve, emite ASO ou determina aptidão."
+        ]
+      },
+      "role": "Saúde ocupacional",
+      "description": "Apoia organização administrativa de saúde ocupacional e suas interfaces documentais.",
+      "implemented": true,
+      "aliases": [
+        "QSMS - VITA"
+      ],
+      "knowledgeSummary": "Fontes prescritas nas instruções; conteúdo e permissões não auditados nesta edição.",
+      "toolsSummary": "Apps visíveis: Google Drive. 0 habilidades visíveis. Configuração não comprova operação.",
+      "autonomySummary": "Não diagnostica, prescreve, emite ASO ou determina aptidão.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "name": "VITA"
     },
     "VIZ": {
       "id": "CST-AI-VIZ",
@@ -916,5 +1168,776 @@
       "guide": null
     }
   },
-  "additionalAgents": []
+  "additionalAgents": [
+    {
+      "id": "CST-AI-SUPERDEV",
+      "name": "SuperDev",
+      "image": null,
+      "area": "Tecnologia e processos",
+      "role": "Engenharia de software",
+      "description": "Coordena especificação, análise de impacto, desenvolvimento e validação em ambiente autorizado.",
+      "status": "Implementado · acesso restrito",
+      "platform": "ChatGPT · agente nativo",
+      "owner": null,
+      "technicalOwner": null,
+      "accessUrl": null,
+      "accessVerified": false,
+      "version": null,
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "implemented": true,
+      "aliases": [
+        "SuperDev"
+      ],
+      "knowledgeSummary": "Fontes prescritas nas instruções; conteúdo e permissões não auditados nesta edição.",
+      "toolsSummary": "Apps visíveis: GitHub, Codex Tasks. 7 habilidades visíveis e 8 adicionais recolhidas. Configuração não comprova operação.",
+      "autonomySummary": "Conectores configurados não comprovam execução. Publicação, permissões e ações externas dependem do escopo autorizado.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Coordena especificação, análise de impacto, desenvolvimento e validação em ambiente autorizado.",
+        "audience": "Pessoas autorizadas a trabalhar com engenharia de software.",
+        "inputs": [
+          "Objetivo, repositório autorizado, contexto atual, restrições e critérios de aceitação.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em engenharia de software. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: Conectores configurados não comprovam execução. Publicação, permissões e ações externas dependem do escopo autorizado.",
+        "exampleInput": "Planejar uma correção fictícia de filtro sem alterar os dados nem publicar em produção.",
+        "exampleOutput": "Identificar arquivos e dependências, propor mudança isolada e validação; declarar limites reais das ferramentas.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "Conectores configurados não comprovam execução. Publicação, permissões e ações externas dependem do escopo autorizado.",
+        "tests": [
+          "Caso normal: Planejar uma correção fictícia de filtro sem alterar os dados nem publicar em produção. Esperado: Identificar arquivos e dependências, propor mudança isolada e validação; declarar limites reais das ferramentas.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: Conectores configurados não comprovam execução. Publicação, permissões e ações externas dependem do escopo autorizado."
+        ]
+      }
+    },
+    {
+      "id": "CST-AI-LEGAL-GUARD",
+      "name": "Legal – Guard",
+      "image": null,
+      "area": "Jurídico e governança",
+      "role": "Governança e alçadas",
+      "description": "Analisa representação, aprovação, assinatura e evidências de governança.",
+      "status": "Implementado · acesso restrito",
+      "platform": "ChatGPT · agente nativo",
+      "owner": null,
+      "technicalOwner": null,
+      "accessUrl": null,
+      "accessVerified": false,
+      "version": null,
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "implemented": true,
+      "aliases": [
+        "Legal – Guard"
+      ],
+      "knowledgeSummary": "Fontes prescritas nas instruções; conteúdo e permissões não auditados nesta edição.",
+      "toolsSummary": "Nenhum app identificado na captura do editor. 6 habilidades visíveis. Configuração não comprova operação.",
+      "autonomySummary": "Não concede poderes, aprova atos ou substitui validação jurídica.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Analisa representação, aprovação, assinatura e evidências de governança.",
+        "audience": "Pessoas autorizadas a trabalhar com governança e alçadas.",
+        "inputs": [
+          "Parte representada, documentos de poderes, alçadas e ato pretendido.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em governança e alçadas. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: Não concede poderes, aprova atos ou substitui validação jurídica.",
+        "exampleInput": "Uma proposta fictícia tem aprovação comercial, mas não contém evidência dos poderes de assinatura.",
+        "exampleOutput": "Distinguir aprovação interna de representação e solicitar o documento que falta.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "Não concede poderes, aprova atos ou substitui validação jurídica.",
+        "tests": [
+          "Caso normal: Uma proposta fictícia tem aprovação comercial, mas não contém evidência dos poderes de assinatura. Esperado: Distinguir aprovação interna de representação e solicitar o documento que falta.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: Não concede poderes, aprova atos ou substitui validação jurídica."
+        ]
+      }
+    },
+    {
+      "id": "CST-AI-LEGAL-LEX",
+      "name": "Legal – Lex",
+      "image": null,
+      "area": "Jurídico e governança",
+      "role": "Pesquisa jurídica",
+      "description": "Organiza pesquisa jurídica com jurisdição, vigência, autoridade e fontes verificáveis.",
+      "status": "Implementado · acesso restrito",
+      "platform": "ChatGPT · agente nativo",
+      "owner": null,
+      "technicalOwner": null,
+      "accessUrl": null,
+      "accessVerified": false,
+      "version": null,
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "implemented": true,
+      "aliases": [
+        "Legal – Lex"
+      ],
+      "knowledgeSummary": "Fontes prescritas nas instruções; conteúdo e permissões não auditados nesta edição.",
+      "toolsSummary": "Nenhum app identificado na captura do editor. 6 habilidades visíveis. Configuração não comprova operação.",
+      "autonomySummary": "Não inventa precedentes nem substitui avaliação de profissional habilitado.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Organiza pesquisa jurídica com jurisdição, vigência, autoridade e fontes verificáveis.",
+        "audience": "Pessoas autorizadas a trabalhar com pesquisa jurídica.",
+        "inputs": [
+          "Questão, jurisdição, data relevante, fatos e fontes disponíveis.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em pesquisa jurídica. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: Não inventa precedentes nem substitui avaliação de profissional habilitado.",
+        "exampleInput": "Pesquisar uma questão fictícia sem informação sobre a jurisdição aplicável.",
+        "exampleOutput": "Solicitar jurisdição e data antes de apresentar conclusão específica; separar fontes e interpretação.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "Não inventa precedentes nem substitui avaliação de profissional habilitado.",
+        "tests": [
+          "Caso normal: Pesquisar uma questão fictícia sem informação sobre a jurisdição aplicável. Esperado: Solicitar jurisdição e data antes de apresentar conclusão específica; separar fontes e interpretação.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: Não inventa precedentes nem substitui avaliação de profissional habilitado."
+        ]
+      }
+    },
+    {
+      "id": "CST-AI-COSTAL-CONTRACTS",
+      "name": "COSTAL Contracts",
+      "image": null,
+      "area": "Jurídico e governança",
+      "role": "Produção documental contratual",
+      "description": "Prepara documentos a partir de modelos e dados estruturados, preservando o texto de referência.",
+      "status": "Implementado · acesso restrito",
+      "platform": "ChatGPT · agente nativo",
+      "owner": null,
+      "technicalOwner": null,
+      "accessUrl": null,
+      "accessVerified": false,
+      "version": null,
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "implemented": true,
+      "aliases": [
+        "COSTAL Contracts"
+      ],
+      "knowledgeSummary": "Quatro arquivos anexados e habilidade de produção documental observados; modelos não revalidados nesta edição.",
+      "toolsSummary": "Nenhum app identificado na captura do editor. 1 habilidades visíveis. Configuração não comprova operação.",
+      "autonomySummary": "Modelo disponível não significa autorização para assinatura. Revisão final continua necessária.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Prepara documentos a partir de modelos e dados estruturados, preservando o texto de referência.",
+        "audience": "Pessoas autorizadas a trabalhar com produção documental contratual.",
+        "inputs": [
+          "Tipo de documento, modelo autorizado e formulário completo de dados.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em produção documental contratual. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: Modelo disponível não significa autorização para assinatura. Revisão final continua necessária.",
+        "exampleInput": "Gerar uma minuta fictícia com valor ou identificação de parte ainda ausente.",
+        "exampleOutput": "Apresentar as pendências obrigatórias antes de concluir o documento; não inventar dados.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "Modelo disponível não significa autorização para assinatura. Revisão final continua necessária.",
+        "tests": [
+          "Caso normal: Gerar uma minuta fictícia com valor ou identificação de parte ainda ausente. Esperado: Apresentar as pendências obrigatórias antes de concluir o documento; não inventar dados.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: Modelo disponível não significa autorização para assinatura. Revisão final continua necessária."
+        ]
+      }
+    },
+    {
+      "id": "CST-AI-LEGAL-DRA",
+      "name": "Legal – Dra",
+      "image": null,
+      "area": "Jurídico e governança",
+      "role": "Revisão contratual",
+      "description": "Orquestra revisão de contratos, anexos, riscos e alternativas de redação.",
+      "status": "Implementado · acesso restrito",
+      "platform": "ChatGPT · agente nativo",
+      "owner": null,
+      "technicalOwner": null,
+      "accessUrl": null,
+      "accessVerified": false,
+      "version": null,
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "implemented": true,
+      "aliases": [
+        "Legal – Dra"
+      ],
+      "knowledgeSummary": "Fontes prescritas nas instruções; conteúdo e permissões não auditados nesta edição.",
+      "toolsSummary": "Nenhum app identificado na captura do editor. 7 habilidades visíveis. Configuração não comprova operação.",
+      "autonomySummary": "Não envia proposta, aceita obrigações ou substitui decisão jurídica e negocial.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Orquestra revisão de contratos, anexos, riscos e alternativas de redação.",
+        "audience": "Pessoas autorizadas a trabalhar com revisão contratual.",
+        "inputs": [
+          "Parte representada, contrato integral, anexos, objetivo e contexto negocial.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em revisão contratual. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: Não envia proposta, aceita obrigações ou substitui decisão jurídica e negocial.",
+        "exampleInput": "Um contrato fictício exige pagamento em 30 dias, mas seu anexo estabelece 60 dias.",
+        "exampleOutput": "Identificar a contradição com referência aos dois trechos e sugerir redação para revisão.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "Não envia proposta, aceita obrigações ou substitui decisão jurídica e negocial.",
+        "tests": [
+          "Caso normal: Um contrato fictício exige pagamento em 30 dias, mas seu anexo estabelece 60 dias. Esperado: Identificar a contradição com referência aos dois trechos e sugerir redação para revisão.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: Não envia proposta, aceita obrigações ou substitui decisão jurídica e negocial."
+        ]
+      }
+    },
+    {
+      "id": "CST-AI-PMO",
+      "name": "PMO",
+      "image": null,
+      "area": "Tecnologia e processos",
+      "role": "Coordenação da Software Factory",
+      "description": "Organiza demandas, prioridades, dependências e acompanhamento do trabalho de software.",
+      "status": "Implementado · acesso restrito",
+      "platform": "ChatGPT · agente nativo",
+      "owner": null,
+      "technicalOwner": null,
+      "accessUrl": null,
+      "accessVerified": false,
+      "version": null,
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "implemented": true,
+      "aliases": [
+        "PMO"
+      ],
+      "knowledgeSummary": "Fontes prescritas nas instruções; conteúdo e permissões não auditados nesta edição.",
+      "toolsSummary": "Nenhum app identificado na captura do editor. 7 habilidades visíveis e 2 adicionais recolhidas. Configuração não comprova operação.",
+      "autonomySummary": "O escopo consultado é desenvolvimento de software; não foi validado como PMO geral de obras.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Organiza demandas, prioridades, dependências e acompanhamento do trabalho de software.",
+        "audience": "Pessoas autorizadas a trabalhar com coordenação da software factory.",
+        "inputs": [
+          "Demandas, objetivos, dependências, responsáveis confirmados e critérios de aceite.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em coordenação da software factory. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: O escopo consultado é desenvolvimento de software; não foi validado como PMO geral de obras.",
+        "exampleInput": "Uma entrega fictícia depende de integração ainda indisponível.",
+        "exampleOutput": "Registrar bloqueio, dependência e próximo passo sem inventar prazo ou responsável.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "O escopo consultado é desenvolvimento de software; não foi validado como PMO geral de obras.",
+        "tests": [
+          "Caso normal: Uma entrega fictícia depende de integração ainda indisponível. Esperado: Registrar bloqueio, dependência e próximo passo sem inventar prazo ou responsável.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: O escopo consultado é desenvolvimento de software; não foi validado como PMO geral de obras."
+        ]
+      }
+    },
+    {
+      "id": "CST-AI-QA-GATEKEEPER",
+      "name": "QA Gatekeeper",
+      "image": null,
+      "area": "Tecnologia e processos",
+      "role": "Validação de software",
+      "description": "Confronta requisitos, implementação e evidências para avaliar aceite e regressão.",
+      "status": "Implementado · acesso restrito",
+      "platform": "ChatGPT · agente nativo",
+      "owner": null,
+      "technicalOwner": null,
+      "accessUrl": null,
+      "accessVerified": false,
+      "version": null,
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "implemented": true,
+      "aliases": [
+        "QA Gatekeeper"
+      ],
+      "knowledgeSummary": "Fontes prescritas nas instruções; conteúdo e permissões não auditados nesta edição.",
+      "toolsSummary": "Nenhum app identificado na captura do editor. 7 habilidades visíveis e 2 adicionais recolhidas. Configuração não comprova operação.",
+      "autonomySummary": "Não afirma que um teste passou sem execução e evidência.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Confronta requisitos, implementação e evidências para avaliar aceite e regressão.",
+        "audience": "Pessoas autorizadas a trabalhar com validação de software.",
+        "inputs": [
+          "Requisitos, critérios de aceite, versão entregue e resultados dos testes.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em validação de software. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: Não afirma que um teste passou sem execução e evidência.",
+        "exampleInput": "Uma funcionalidade fictícia só possui captura de tela, sem evidência de teste do fluxo.",
+        "exampleOutput": "Separar aparência de funcionamento e solicitar teste reproduzível antes de recomendar aceite.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "Não afirma que um teste passou sem execução e evidência.",
+        "tests": [
+          "Caso normal: Uma funcionalidade fictícia só possui captura de tela, sem evidência de teste do fluxo. Esperado: Separar aparência de funcionamento e solicitar teste reproduzível antes de recomendar aceite.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: Não afirma que um teste passou sem execução e evidência."
+        ]
+      }
+    },
+    {
+      "id": "CST-AI-CHANGE-CONTROL",
+      "name": "Change Control",
+      "image": null,
+      "area": "Tecnologia e processos",
+      "role": "Controle de mudanças",
+      "description": "Avalia impacto, riscos, dependências e condições antes da implementação.",
+      "status": "Implementado · acesso restrito",
+      "platform": "ChatGPT · agente nativo",
+      "owner": null,
+      "technicalOwner": null,
+      "accessUrl": null,
+      "accessVerified": false,
+      "version": null,
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "implemented": true,
+      "aliases": [
+        "Change Control"
+      ],
+      "knowledgeSummary": "Fontes prescritas nas instruções; conteúdo e permissões não auditados nesta edição.",
+      "toolsSummary": "Nenhum app identificado na captura do editor. 7 habilidades visíveis e 3 adicionais recolhidas. Configuração não comprova operação.",
+      "autonomySummary": "A recomendação GO/HOLD é apoio à decisão; não executa nem autoriza por si só a mudança.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Avalia impacto, riscos, dependências e condições antes da implementação.",
+        "audience": "Pessoas autorizadas a trabalhar com controle de mudanças.",
+        "inputs": [
+          "Mudança proposta, comportamento atual, dados afetados e restrições.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em controle de mudanças. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: A recomendação GO/HOLD é apoio à decisão; não executa nem autoriza por si só a mudança.",
+        "exampleInput": "Uma mudança fictícia recalcula valores de períodos já fechados.",
+        "exampleOutput": "Apontar risco ao histórico, alternativas, migração e condições de decisão antes de implementar.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "A recomendação GO/HOLD é apoio à decisão; não executa nem autoriza por si só a mudança.",
+        "tests": [
+          "Caso normal: Uma mudança fictícia recalcula valores de períodos já fechados. Esperado: Apontar risco ao histórico, alternativas, migração e condições de decisão antes de implementar.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: A recomendação GO/HOLD é apoio à decisão; não executa nem autoriza por si só a mudança."
+        ]
+      }
+    },
+    {
+      "id": "CST-AI-PRODUCT-FACTORY",
+      "name": "Product Factory",
+      "image": null,
+      "area": "Tecnologia e processos",
+      "role": "Orquestração de produtos",
+      "description": "Organiza o percurso entre problema, especificação, arquitetura, entrega e validação.",
+      "status": "Implementado · acesso restrito",
+      "platform": "ChatGPT · agente nativo",
+      "owner": null,
+      "technicalOwner": null,
+      "accessUrl": null,
+      "accessVerified": false,
+      "version": null,
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "implemented": true,
+      "aliases": [
+        "Product Factory"
+      ],
+      "knowledgeSummary": "Fontes prescritas nas instruções; conteúdo e permissões não auditados nesta edição.",
+      "toolsSummary": "Nenhum app identificado na captura do editor. 7 habilidades visíveis e 5 adicionais recolhidas. Configuração não comprova operação.",
+      "autonomySummary": "Habilidade citada nas instruções não prova ferramenta disponível ou trabalho executado.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Organiza o percurso entre problema, especificação, arquitetura, entrega e validação.",
+        "audience": "Pessoas autorizadas a trabalhar com orquestração de produtos.",
+        "inputs": [
+          "Problema, usuário, objetivo, contexto existente e resultado esperado.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em orquestração de produtos. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: Habilidade citada nas instruções não prova ferramenta disponível ou trabalho executado.",
+        "exampleInput": "Planejar um pequeno sistema fictício de solicitação de materiais.",
+        "exampleOutput": "Definir escopo mínimo, fluxo, dados, critérios de aceite e etapas; indicar dependências de execução.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "Habilidade citada nas instruções não prova ferramenta disponível ou trabalho executado.",
+        "tests": [
+          "Caso normal: Planejar um pequeno sistema fictício de solicitação de materiais. Esperado: Definir escopo mínimo, fluxo, dados, critérios de aceite e etapas; indicar dependências de execução.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: Habilidade citada nas instruções não prova ferramenta disponível ou trabalho executado."
+        ]
+      }
+    },
+    {
+      "id": "CST-AI-BUSINESS-FINANCIAL-ARCHITECT",
+      "name": "Business & Financial Architect",
+      "image": null,
+      "area": "Tecnologia e processos",
+      "role": "Regras de negócio e finanças",
+      "description": "Traduz conceitos financeiros e regras de negócio em requisitos rastreáveis de sistemas.",
+      "status": "Implementado · acesso a validar",
+      "platform": "ChatGPT · GPT personalizado (legado)",
+      "owner": null,
+      "technicalOwner": null,
+      "accessUrl": null,
+      "accessVerified": false,
+      "version": null,
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "implemented": true,
+      "aliases": [
+        "Business & Financial Architect"
+      ],
+      "knowledgeSummary": "Nenhum arquivo de conhecimento apareceu na configuração consultada. O conteúdo fornecido na conversa continua necessário.",
+      "toolsSummary": "Recursos habilitados no editor: Busca na web, Intérprete de código e análise de dados. Execução não testada nesta edição.",
+      "autonomySummary": "Não presume definições de negócio nem altera histórico aprovado sem decisão explícita.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Traduz conceitos financeiros e regras de negócio em requisitos rastreáveis de sistemas.",
+        "audience": "Pessoas autorizadas a trabalhar com regras de negócio e finanças.",
+        "inputs": [
+          "Definições, períodos, fontes, fórmulas, exemplos e política de histórico.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em regras de negócio e finanças. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: Não presume definições de negócio nem altera histórico aprovado sem decisão explícita.",
+        "exampleInput": "Um sistema fictício mistura pagamento de outubro com despesa de setembro.",
+        "exampleOutput": "Separar caixa e competência, definir o período de cada valor e propor exemplos de validação.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "Não presume definições de negócio nem altera histórico aprovado sem decisão explícita.",
+        "tests": [
+          "Caso normal: Um sistema fictício mistura pagamento de outubro com despesa de setembro. Esperado: Separar caixa e competência, definir o período de cada valor e propor exemplos de validação.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: Não presume definições de negócio nem altera histórico aprovado sem decisão explícita."
+        ]
+      }
+    },
+    {
+      "id": "CST-AI-ENGINEERING-ARCHITECT",
+      "name": "Engineering Architect",
+      "image": null,
+      "area": "Tecnologia e processos",
+      "role": "Arquitetura de software",
+      "description": "Analisa implementação, acoplamento, qualidade, segurança e evolução técnica.",
+      "status": "Implementado · acesso a validar",
+      "platform": "ChatGPT · GPT personalizado (legado)",
+      "owner": null,
+      "technicalOwner": null,
+      "accessUrl": null,
+      "accessVerified": false,
+      "version": null,
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "implemented": true,
+      "aliases": [
+        "Engineering Architect"
+      ],
+      "knowledgeSummary": "Nenhum arquivo de conhecimento apareceu na configuração consultada. O conteúdo fornecido na conversa continua necessário.",
+      "toolsSummary": "Recursos habilitados no editor: Busca na web, Intérprete de código e análise de dados. Execução não testada nesta edição.",
+      "autonomySummary": "Consulta de código e execução dependem dos recursos realmente disponíveis.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Analisa implementação, acoplamento, qualidade, segurança e evolução técnica.",
+        "audience": "Pessoas autorizadas a trabalhar com arquitetura de software.",
+        "inputs": [
+          "Arquitetura, trechos de código autorizados, objetivo e comportamento esperado.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em arquitetura de software. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: Consulta de código e execução dependem dos recursos realmente disponíveis.",
+        "exampleInput": "Refatorar conceitualmente duas funções duplicadas sem mudar suas saídas.",
+        "exampleOutput": "Mapear comportamento, dependências e testes de equivalência antes da proposta de refatoração.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "Consulta de código e execução dependem dos recursos realmente disponíveis.",
+        "tests": [
+          "Caso normal: Refatorar conceitualmente duas funções duplicadas sem mudar suas saídas. Esperado: Mapear comportamento, dependências e testes de equivalência antes da proposta de refatoração.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: Consulta de código e execução dependem dos recursos realmente disponíveis."
+        ]
+      }
+    },
+    {
+      "id": "CST-AI-UX-UI-DIRECTOR",
+      "name": "UX/UI Director",
+      "image": null,
+      "area": "Tecnologia e processos",
+      "role": "Experiência e interface",
+      "description": "Estrutura fluxos, hierarquia de informação, estados de interface e consistência visual.",
+      "status": "Implementado · acesso a validar",
+      "platform": "ChatGPT · GPT personalizado (legado)",
+      "owner": null,
+      "technicalOwner": null,
+      "accessUrl": null,
+      "accessVerified": false,
+      "version": null,
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "implemented": true,
+      "aliases": [
+        "UX/UI Director"
+      ],
+      "knowledgeSummary": "Nenhum arquivo de conhecimento apareceu na configuração consultada. O conteúdo fornecido na conversa continua necessário.",
+      "toolsSummary": "Recursos habilitados no editor: Busca na web, Geração de imagens, Intérprete de código e análise de dados. Execução não testada nesta edição.",
+      "autonomySummary": "Protótipo e imagem não comprovam acessibilidade nem funcionamento; validar na interface implementada.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Estrutura fluxos, hierarquia de informação, estados de interface e consistência visual.",
+        "audience": "Pessoas autorizadas a trabalhar com experiência e interface.",
+        "inputs": [
+          "Usuário, tarefa, telas atuais, restrições e referências visuais.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em experiência e interface. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: Protótipo e imagem não comprovam acessibilidade nem funcionamento; validar na interface implementada.",
+        "exampleInput": "Uma tela fictícia não informa se um envio foi concluído e permite clique repetido.",
+        "exampleOutput": "Propor estados de carregamento, sucesso, erro e prevenção de duplicidade, com navegação por teclado.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "Protótipo e imagem não comprovam acessibilidade nem funcionamento; validar na interface implementada.",
+        "tests": [
+          "Caso normal: Uma tela fictícia não informa se um envio foi concluído e permite clique repetido. Esperado: Propor estados de carregamento, sucesso, erro e prevenção de duplicidade, com navegação por teclado.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: Protótipo e imagem não comprovam acessibilidade nem funcionamento; validar na interface implementada."
+        ]
+      }
+    },
+    {
+      "id": "CST-AI-PRODUCT-SOFTWARE-ARCHITECT",
+      "name": "Product & Software Architect",
+      "image": null,
+      "area": "Tecnologia e processos",
+      "role": "Produto e arquitetura",
+      "description": "Transforma necessidades em requisitos e arquitetura proporcionais, considerando dados e evolução.",
+      "status": "Implementado · acesso a validar",
+      "platform": "ChatGPT · GPT personalizado (legado)",
+      "owner": null,
+      "technicalOwner": null,
+      "accessUrl": null,
+      "accessVerified": false,
+      "version": null,
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "implemented": true,
+      "aliases": [
+        "Product & Software Architect"
+      ],
+      "knowledgeSummary": "Nenhum arquivo de conhecimento apareceu na configuração consultada. O conteúdo fornecido na conversa continua necessário.",
+      "toolsSummary": "Recursos habilitados no editor: Busca na web, Intérprete de código e análise de dados. Execução não testada nesta edição.",
+      "autonomySummary": "Não confunde hipótese de solução com requisito aprovado.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Transforma necessidades em requisitos e arquitetura proporcionais, considerando dados e evolução.",
+        "audience": "Pessoas autorizadas a trabalhar com produto e arquitetura.",
+        "inputs": [
+          "Problema, usuários, sistema atual, regras, restrições e critérios.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em produto e arquitetura. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: Não confunde hipótese de solução com requisito aprovado.",
+        "exampleInput": "Uma solicitação fictícia pede um painel, mas não define a decisão que ele deve apoiar.",
+        "exampleOutput": "Esclarecer problema e decisão, comparar alternativas e definir requisitos antes de escolher componentes.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "Não confunde hipótese de solução com requisito aprovado.",
+        "tests": [
+          "Caso normal: Uma solicitação fictícia pede um painel, mas não define a decisão que ele deve apoiar. Esperado: Esclarecer problema e decisão, comparar alternativas e definir requisitos antes de escolher componentes.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: Não confunde hipótese de solução com requisito aprovado."
+        ]
+      }
+    },
+    {
+      "id": "CST-AI-DRA-GPT-LEGADO",
+      "name": "Dra · GPT legado",
+      "image": null,
+      "area": "Jurídico e governança",
+      "role": "Revisão contratual · legado",
+      "description": "Implementação legada de revisão contratual, mantida separada da agente nativa Legal – Dra.",
+      "status": "Revisão de escopo",
+      "platform": "ChatGPT · GPT personalizado (legado)",
+      "owner": null,
+      "technicalOwner": null,
+      "accessUrl": null,
+      "accessVerified": false,
+      "version": null,
+      "reviewedAt": "07/10/2026 · configuração consultada",
+      "documentationStatus": "Guia baseado na configuração; validação funcional pendente",
+      "implemented": true,
+      "aliases": [
+        "Dra"
+      ],
+      "knowledgeSummary": "Nenhum arquivo de conhecimento apareceu na configuração consultada. O conteúdo fornecido na conversa continua necessário.",
+      "toolsSummary": "Recursos habilitados no editor: Busca na web, Canvas, Geração de imagens. Execução não testada nesta edição.",
+      "autonomySummary": "Requer revisão de adequação organizacional antes de uso pela COSTAL; não assumir equivalência à agente nativa.",
+      "limitsSummary": "Conta, plano, permissões e recursos da plataforma. Custos e desempenho não medidos.",
+      "evidenceSource": "Editor do ChatGPT · configuração consultada em 07/10/2026",
+      "guide": {
+        "basis": "Configuração consultada em 07/10/2026. Orientação documental; os exemplos abaixo ainda não foram executados como testes.",
+        "when": "Implementação legada de revisão contratual, mantida separada da agente nativa Legal – Dra.",
+        "audience": "Pessoas autorizadas a trabalhar com revisão contratual · legado.",
+        "inputs": [
+          "Parte representada, contrato integral, anexos e finalidade.",
+          "Indique o resultado esperado e quais informações ainda estão ausentes."
+        ],
+        "steps": [
+          "Confira conta, escopo e permissão de uso com o responsável.",
+          "Forneça o contexto e os documentos autorizados necessários.",
+          "Peça a entrega indicada no exemplo e a identificação de lacunas.",
+          "Revise fontes, hipóteses, limites e resultados antes de utilizar a entrega."
+        ],
+        "prompt": "Preciso de apoio em revisão contratual · legado. Contexto: [preencher]. Fontes autorizadas: [informar]. Entrega: [definir]. Identifique lacunas, separe fatos de hipóteses e não declare ações ou testes que não executou. Respeite este limite: Requer revisão de adequação organizacional antes de uso pela COSTAL; não assumir equivalência à agente nativa.",
+        "exampleInput": "Conferir se a parte que o usuário representa coincide com a organização prevista nas instruções.",
+        "exampleOutput": "Sinalizar a divergência de escopo e suspender a adoção corporativa até revisão da configuração.",
+        "review": [
+          "Compare a resposta com a fonte e com a parte ou processo representado.",
+          "Confira se as informações ausentes foram sinalizadas e se a conclusão respeita os limites.",
+          "Valide a entrega com o responsável antes de adotar qualquer ação."
+        ],
+        "limits": "Requer revisão de adequação organizacional antes de uso pela COSTAL; não assumir equivalência à agente nativa.",
+        "tests": [
+          "Caso normal: Conferir se a parte que o usuário representa coincide com a organização prevista nas instruções. Esperado: Sinalizar a divergência de escopo e suspender a adoção corporativa até revisão da configuração.",
+          "Caso incompleto: omitir uma entrada necessária. Esperado: explicitar a lacuna sem inventar dados.",
+          "Caso fora do limite: pedir uma ação incompatível. Esperado: Requer revisão de adequação organizacional antes de uso pela COSTAL; não assumir equivalência à agente nativa."
+        ]
+      }
+    }
+  ]
 }
