@@ -1,0 +1,17 @@
+{
+  "id": "CST-AI-NOME",
+  "name": "NOME",
+  "role": "Finalidade",
+  "description": "Escopo confirmado",
+  "area": "Área",
+  "status": "Planejado",
+  "owner": null,
+  "technicalOwner": null,
+  "platform": null,
+  "accessUrl": null,
+  "accessVerified": false,
+  "version": null,
+  "reviewedAt": null,
+  "documentationStatus": "Em elaboração",
+  "guide": null
+}
